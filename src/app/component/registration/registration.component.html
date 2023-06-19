@@ -1,0 +1,184 @@
+<nav>
+    <h1>Bank Registration Form</h1>
+</nav>
+<div class="bg">
+<div class="container">
+<form (ngSubmit)="submitForm()" #bankForm="ngForm" novalidate>
+  <h3>Personal Information</h3>
+  <div>
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" [(ngModel)]="bank.fullName" required>
+    <div *ngIf="bankForm.controls['fullName'].invalid && bankForm.controls['fullName'].touched" class="error-msg">
+      Full name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" [(ngModel)]="bank.dob" required>
+    <div *ngIf="bankForm.controls['dob'].invalid && bankForm.controls['dob'].touched" class="error-msg">
+      Date of birth is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" [(ngModel)]="bank.gender" required>
+      <option value="" disabled>Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <div *ngIf="bankForm.controls['gender'].invalid && bankForm.controls['gender'].touched" class="error-msg">
+      Gender is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" name="nationality" [(ngModel)]="bank.nationality" required>
+    <div *ngIf="bankForm.controls['nationality'].invalid && bankForm.controls['nationality'].touched" class="error-msg">
+      Nationality is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="address">Residential Address:</label>
+    <textarea id="address" name="address" [(ngModel)]="bank.address" required></textarea>
+    <div *ngIf="bankForm.controls['address'].invalid && bankForm.controls['address'].touched" class="error-msg">
+      Residential address is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="bank.phoneNumber" required pattern="[0-9]{10}">
+    <div *ngIf="bankForm.controls['phoneNumber'].invalid && bankForm.controls['phoneNumber'].touched" class="error-msg">
+      Please enter a valid 10-digit phone number.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="bank.email" required>
+    <div *ngIf="bankForm.controls['email'].invalid && bankForm.controls['email'].touched" class="error-msg">
+      Please enter a valid email address.
+    </div>
+  </div>
+
+  <h3>Identification Details</h3>
+  <div>
+    <label for="ssn">Social Security Number / National ID:</label>
+    <input type="text" id="ssn" name="ssn" [(ngModel)]="bank.ssn">
+  </div>
+
+  <div>
+    <label for="passportNumber">Passport Number:</label>
+    <input type="text" id="passportNumber" name="passportNumber" [(ngModel)]="bank.passportNumber">
+  </div>
+
+  <h3>Employment Details</h3>
+  <div>
+    <label for="occupation">Occupation:</label>
+    <input type="text" id="occupation" name="occupation" [(ngModel)]="bank.occupation">
+  </div>
+
+  <div>
+    <label for="employerName">Employer's Name:</label>
+    <input type="text" id="employerName" name="employerName" [(ngModel)]="bank.employerName">
+  </div>
+
+  <div>
+    <label for="employerAddress">Employer's Address:</label>
+    <textarea id="employerAddress" name="employerAddress" [(ngModel)]="bank.employerAddress"></textarea>
+  </div>
+
+  <h3>Financial Information</h3>
+  <div>
+    <label for="annualIncome">Annual Income:</label>
+    <input type="number" id="annualIncome" name="annualIncome" [(ngModel)]="bank.annualIncome">
+  </div>
+
+  <div>
+    <label for="sourceOfIncome">Source of Income:</label>
+    <input type="text" id="sourceOfIncome" name="sourceOfIncome" [(ngModel)]="bank.sourceOfIncome">
+  </div>
+
+  <div>
+    <label for="currentBanking">Current Banking Relationship:</label>
+    <input type="text" id="currentBanking" name="currentBanking" [(ngModel)]="bank.currentBanking">
+  </div>
+
+  <h3>Account Details</h3>
+  <div>
+    <label for="accountType">Type of Account:</label>
+    <input type="text" id="accountType" name="accountType" [(ngModel)]="bank.accountType" required>
+    <div *ngIf="bankForm.controls['accountType'].invalid && bankForm.controls['accountType'].touched" class="error-msg">
+      Account type is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="accountPreferences">Account Preferences:</label>
+    <textarea id="accountPreferences" name="accountPreferences" [(ngModel)]="bank.accountPreferences"></textarea>
+  </div>
+
+  <h3>Security Information</h3>
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="bank.username" required>
+    <div *ngIf="bankForm.controls['username'].invalid && bankForm.controls['username'].touched" class="error-msg">
+      Username is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="bank.password" required minlength="8">
+    <div *ngIf="bankForm.controls['password'].invalid && bankForm.controls['password'].touched" class="error-msg">
+      Password is required and must be at least 8 characters long.
+    </div>
+  </div>
+
+  <div>
+    <label for="securityQuestion">Security Question:</label>
+    <input type="text" id="securityQuestion" name="securityQuestion" [(ngModel)]="bank.securityQuestion" required>
+    <div *ngIf="bankForm.controls['securityQuestion'].invalid && bankForm.controls['securityQuestion'].touched" class="error-msg">
+      Security question is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="securityAnswer">Security Answer:</label>
+    <input type="text" id="securityAnswer" name="securityAnswer" [(ngModel)]="bank.securityAnswer" required>
+    <div *ngIf="bankForm.controls['securityAnswer'].invalid && bankForm.controls['securityAnswer'].touched" class="error-msg">
+      Security answer is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="bankForm.invalid">Submit</button>
+</form>
+<table>
+    <tr>
+      <th>Full Name</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Nationality</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let bank of banks | async">
+      <td>{{ bank.fullName }}</td>
+      <td>{{ bank.dob }}</td>
+      <td>{{ bank.gender }}</td>
+      <td>{{ bank.nationality }}</td>
+      <td>
+        <button (click)="editBank(bank)">Edit</button>
+        <button (click)="deleteBank(bank.id || '')">Delete</button>
+      </td>
+    </tr>
+  </table>
+ </div>
+</div>
+
+
+ 
