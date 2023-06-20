@@ -56,6 +56,7 @@ export class RegistrationComponent {
     this.banksCollection = this.afs.collection<Bank>('banks');
     this.banks = this.banksCollection.valueChanges({ idField: 'id' });
   }
+  
 
   submitForm() {
     if (this.bank.id) {
@@ -66,6 +67,8 @@ export class RegistrationComponent {
     } else {
       this.banksCollection.add(this.bank);
       console.log("add");
+      const successMessage = 'Form updated successfully!';
+      window.alert(successMessage);
     }
     this.resetForm();
   }
